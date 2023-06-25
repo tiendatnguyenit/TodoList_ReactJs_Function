@@ -32,7 +32,10 @@ class App extends PureComponent {
     ],
     isCheckedAll: false,
     status: "ALL",
-    todoEditingId: "",
+    todoEditing: {
+      id: "",
+      index: "",
+    },
   };
 
   addTodos = (todo = {}) => {
@@ -80,13 +83,19 @@ class App extends PureComponent {
     }));
   };
 
-  getEditTodo = (id = "") => {
+  getEditTodo = (id, index) => {
+    console.log("getEditTodo App", id, index);
     this.setState({
-      todoEditingId: id,
+      todoEditing: {
+        id,
+        index,
+      },
     });
   };
 
   editTodo = (todo, index) => {
+    console.log("getEditTodo App", todo, index);
+
     const { listTodos } = this.state;
     listTodos.splice(index, 1, todo);
     this.setState({ listTodos });
@@ -99,18 +108,24 @@ class App extends PureComponent {
   };
 
   render() {
-    const { listTodos, isCheckedAll, status, todoEditingId } = this.state;
+    const { listTodos, isCheckedAll, status, todoEditing } = this.state;
     return (
       <div className="todoapp">
-        <Header addTodo={this.addTodos} />
+        <Header
+          listTodos={listTodos}
+          addTodo={this.addTodos}
+          todoEditing={todoEditing}
+          getEditTodo={this.getEditTodo}
+          editTodo={this.editTodo}
+        />
         <TodoList
           listTodos={filterByStatus(listTodos, status)}
           markCompleted={this.markCompleted}
           checkAll={this.checkAll}
           isCheckedAll={isCheckedAll}
-          todoEditingId={todoEditingId}
+          todoEditing={todoEditing}
           getEditTodo={this.getEditTodo}
-          editTodo={this.editTodo}
+          // editTodo={this.editTodo}
           removeTodo={this.removeTodo}
         />
         <Footer

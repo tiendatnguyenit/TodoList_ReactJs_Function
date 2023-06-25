@@ -128,7 +128,7 @@ button {
     display: none;
 }
 
-.new-todo, .edit {
+.new-todo, .edit-todo {
     position: relative;
     margin: 0;
     width: 100%;
@@ -137,7 +137,7 @@ button {
     font-weight: inherit;
     line-height: 1.4em;
     border: 0;
-    color: inherit;
+    /* color: inherit; */
     padding: 6px;
     border: 1px solid #999;
     box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -149,8 +149,18 @@ button {
 .new-todo {
     padding: 16px 16px 16px 60px;
     border: none;
+    color: inherit;
     background: rgba(0, 0, 0, 0.003);
     box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+.edit-todo {
+    padding: 16px 16px 16px 60px;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    color: #00aeff;
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+
 }
 
 .todoapp h1 {
