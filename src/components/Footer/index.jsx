@@ -1,7 +1,14 @@
 import React, { memo } from 'react'
 
 const Footer = memo((props) => {
-    const { setStatusFilter, activeButton, clearCompleted, numOfTodosLeft, numOfTodos } = props
+    // const { setStatusFilter, activeButton, clearCompleted, numOfTodosLeft, numOfTodos } = props
+    const numOfTodosLeft = 0
+    const numOfTodos = 0
+    const activeButton = 'ALL'
+    
+    const clearCompleted = () => {
+        console.log('clearCompleted')
+    }
     return (
         <footer className="footer">
             <span className="todo-count">
@@ -15,7 +22,7 @@ const Footer = memo((props) => {
                     <a
                         href="#/"
                         className={`${activeButton === 'ALL' ? "selected" : ''}`}
-                        onClick={() => setStatusFilter('ALL')}
+                        // onClick={() => setStatusFilter('ALL')}
                     >
                         All
                     </a>
@@ -25,7 +32,7 @@ const Footer = memo((props) => {
                     <a
                         href="#/active"
                         className={`${activeButton === 'ACTIVE' ? "selected" : ''}`}
-                        onClick={() => setStatusFilter('ACTIVE')}
+                        // onClick={() => setStatusFilter('ACTIVE')}
                     >
                         Active
                     </a>
@@ -35,7 +42,7 @@ const Footer = memo((props) => {
                     <a
                         href="#/completed"
                         className={`${activeButton === 'COMPLETED' ? "selected" : ''}`}
-                        onClick={() => setStatusFilter('COMPLETED')}
+                        // onClick={() => setStatusFilter('COMPLETED')}
                     >
                         Completed
                     </a>
